@@ -1,21 +1,50 @@
 # Exlivery
 
-**TODO: Add description**
+## Description
 
-## Installation
+interface of comand line to create a users and orders for write in a csv
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `exlivery` to your list of dependencies in `mix.exs`:
+## How to install
 
-```elixir
-def deps do
-  [
-    {:exlivery, "~> 0.1.0"}
-  ]
-end
+```bash
+  mix deps.get
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/exlivery](https://hexdocs.pm/exlivery).
+## How to test
 
+```bash
+  mix test
+```
+
+## How to use
+
+primeiro entre no terminal intergrado com
+
+```bash
+  MIX_TEST=test iex -S mix
+```
+
+In integrated terminal you can write
+
+```bash
+  alias Exlivery.Orders.Report
+  alias Exlivery.Users.User
+  alias Exlivery.Orders.Order
+  alias Exlivery.Orders.Agent, as: OrderAgent
+  alias Exlivery.User.Agent, as: UserAgent
+
+  import Exlivery.Factory
+
+```
+
+create a user
+
+```bash
+  build(:user) |> UserAgent.save()
+```
+
+create a Order
+
+```bash
+  build(:order) |> OrderAgent.save()
+```
